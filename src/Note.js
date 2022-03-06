@@ -29,7 +29,7 @@ class Note extends Component {
           value={this.props.note.description}
           onChange={this.updateDescription}
         />
-        <span className="note__delete">X</span>
+        <span className="note__delete" onClick={() => this.props.onDelete(this.props.note.id)}>X</span>
       </li>
     );
   }

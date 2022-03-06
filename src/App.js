@@ -81,6 +81,11 @@ class App extends Component {
     });
   };
 
+  onDelete = (id) => {
+    const keptNotes = this.state.notes.filter(note => note.id !== id)
+    this.setState({ notes: keptNotes })
+  }
+
   render() {
     return (
       <div>
@@ -89,7 +94,7 @@ class App extends Component {
           searchText={this.state.searchText}
           addNote={this.addNote}
         />
-        <NotesList notes={this.state.notes} onType={this.onType} />
+        <NotesList notes={this.state.notes} onType={this.onType} onDelete={this.onDelete}/>
       </div>
     );
   }
